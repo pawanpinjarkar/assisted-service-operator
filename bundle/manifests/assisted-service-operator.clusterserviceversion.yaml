@@ -18,16 +18,63 @@ spec:
     mediatype: ""
   install:
     spec:
-      deployments: []
+      deployments:
+      - label:
+          app.kubernetes.io/component: deployment
+          app.kubernetes.io/managed-by: olm
+          app.kubernetes.io/part-of: assisted-service
+          app.kubernetes.io/version: 0.0.1
+          name: postgres
+        name: postgres
+        spec:
+          replicas: 1
+          selector:
+            matchLabels:
+              name: postgres
+          strategy:
+            type: RollingUpdate
+          template:
+            metadata:
+              labels:
+                app.kubernetes.io/component: deployment
+                app.kubernetes.io/managed-by: olm
+                app.kubernetes.io/part-of: assisted-service
+                app.kubernetes.io/version: 0.0.1
+                name: postgres
+            spec:
+              containers:
+              - env:
+                - name: POSTGRESQL_DATABASE
+                  valueFrom:
+                    secretKeyRef: {key: db.name, name: assisted-installer-rds}
+                - name: POSTGRESQL_USER
+                  valueFrom:
+                    secretKeyRef: {key: db.user, name: assisted-installer-rds}
+                - name: POSTGRESQL_PASSWORD
+                  valueFrom:
+                    secretKeyRef: {key: db.password, name: assisted-installer-rds}
+                image: quay.io/ocpmetal/postgresql-12-centos7
+                imagePullPolicy: IfNotPresent
+                name: postgres
+                ports:
+                - {containerPort: 5432}
+                resources:
+                  limits: {cpu: 200m, memory: 500Mi}
+                  requests: {cpu: 100m, memory: 400Mi}
+                volumeMounts:
+                - {mountPath: /var/lib/postgress, name: postgredb}
+              volumes:
+              - name: postgredb
+                persistentVolumeClaim: {claimName: postgres-pv-claim}
     strategy: deployment
   installModes:
-  - supported: false
+  - supported: true
     type: OwnNamespace
-  - supported: false
+  - supported: true
     type: SingleNamespace
   - supported: false
     type: MultiNamespace
-  - supported: true
+  - supported: false
     type: AllNamespaces
   keywords:
   - assisted-service
