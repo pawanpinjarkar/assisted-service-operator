@@ -1,0 +1,14 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: ocp-metal-ui
+  #namespace: '{{ ansible_operator_meta.namespace }}'
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80
+      targetPort: 8080
+      protocol: TCP
+      # nodePort: 31000
+  selector:
+    app: ocp-metal-ui
