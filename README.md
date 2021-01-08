@@ -9,4 +9,4 @@ oc apply -f s3-pvc.yaml
 oc apply -f catalog-source.yaml
 ````
 
-From the OperatorHub of you OCP cluster, install Assisted Service.
+From the OperatorHub of you OCP cluster, install "Assisted Service".
