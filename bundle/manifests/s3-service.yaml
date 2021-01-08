@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: scality
+  name: cloudserver-front
+  namespace: '{{ ansible_operator_meta.namespace }}'
+spec:
+  clusterIP: None
+  ports:
+  - port: 8000
+    protocol: TCP
+    targetPort: 8000
+  selector:
+    app: scality
+status:
+  loadBalancer: {}
