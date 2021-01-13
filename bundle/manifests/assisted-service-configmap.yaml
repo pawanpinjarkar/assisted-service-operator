@@ -9,17 +9,19 @@ data:
   CREATE_S3_BUCKET: 'true'
   DHCP_LEASE_ALLOCATOR_IMAGE: quay.io/ocpmetal/assisted-installer-agent:latest
   ENABLE_AUTH: 'False'
+  FIO_PERF_CHECK_IMAGE: quay.io/ocpmetal/assisted-installer-agent:latest
   FREE_ADDRESSES_IMAGE: quay.io/ocpmetal/assisted-installer-agent:latest
   INSTALLER_IMAGE: quay.io/ocpmetal/assisted-installer:latest
   INVENTORY_IMAGE: quay.io/ocpmetal/assisted-installer-agent:latest
   JWKS_URL: https://api.openshift.com/.well-known/jwks.json
-  NAMESPACE: '{{ ansible_operator_meta.namespace }}'
+  NAMESPACE: assisted-installer
   NTP_SYNCHRONIZER_IMAGE: quay.io/ocpmetal/assisted-installer-agent:latest
   OCM_BASE_URL: https://api-integration.6943.hive-integration.openshiftapps.com
-  OPENSHIFT_VERSIONS: '{"4.6":{"release_image":"quay.io/openshift-release-dev/ocp-release:4.6.4-x86_64"},"4.7":{"release_image":"quay.io/openshift-release-dev/ocp-release@sha256:2419f9cd3ea9bd114764855653012e305ade2527210d332bfdd6dbdae538bd66"}}'
+  OPENSHIFT_INSTALL_RELEASE_IMAGE: ''
+  OPENSHIFT_VERSIONS: '{"4.6":{"display_name":"4.6.8","release_image":"quay.io/openshift-release-dev/ocp-release:4.6.8-x86_64","rhcos_image":"https://mirror.openshift.com/pub/openshift-v4/dependencies/rhcos/4.6/4.6.8/rhcos-4.6.8-x86_64-live.x86_64.iso","support_level":"production"},"4.7":{"display_name":"4.7-pre-release","release_image":"quay.io/openshift-release-dev/ocp-release@sha256:2419f9cd3ea9bd114764855653012e305ade2527210d332bfdd6dbdae538bd66","rhcos_image":"https://mirror.openshift.com/pub/openshift-v4/dependencies/rhcos/4.6/4.6.8/rhcos-4.6.8-x86_64-live.x86_64.iso","support_level":"beta"}}'
   PUBLIC_CONTAINER_REGISTRIES: quay.io
   SELF_VERSION: quay.io/ocpmetal/assisted-service:latest
-  SERVICE_BASE_URL: http://assisted-service-assisted-installer.apps.ostest.test.metalkube.org
+  SERVICE_BASE_URL: REPLACE_SERVICE_BASE_URL
   SKIP_CERT_VERIFICATION: 'true'
   HW_VALIDATOR_MIN_DISK_SIZE_GIB: '20'
 kind: ConfigMap
