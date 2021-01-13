@@ -343,6 +343,55 @@ spec:
             #     secret:
             #       secretName: route53-creds
             #       optional: true
+      permissions:
+      - rules:
+        - verbs:
+            - get
+            - watch
+            - list
+          apiGroups:
+            - ''
+          resources:
+            - nodes
+            - pods
+            - endpoints
+            - services
+            - secrets
+        - verbs:
+            - get
+            - watch
+            - list
+            - delete
+            - create
+          apiGroups:
+            - batch
+          resources:
+            - jobs
+        - verbs:
+            - create
+            - get
+            - list
+            - watch
+          apiGroups:
+            - ''
+          resources:
+            - configmaps
+        - verbs:
+            - get
+            - list
+          apiGroups:
+            - config.openshift.io
+          resources:
+            - clusterversions
+        - verbs:
+            - get
+            - update
+            - delete
+          apiGroups:
+            - ''
+          resources:
+            - configmaps
+          resourceNames: ["assisted-service-leader-election-helper", "assisted-service-migration-helper", "assisted-service-baseiso-helper"]
     strategy: deployment
   installModes:
   - supported: true
