@@ -2,7 +2,7 @@ apiVersion: operators.coreos.com/v1alpha1
 kind: CatalogSource
 metadata:
   name: assisted-service-manifests
-  namespace: default
+  namespace: openshift-marketplace
 spec:
   sourceType: grpc
   image: quay.io/rwsu/rwsu-assisted-service-index:0.0.1

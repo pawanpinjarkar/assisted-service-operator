@@ -4,7 +4,7 @@ metadata:
   labels:
     app: scality
   name: scality-pv-claim
-  #namespace: '{{ ansible_operator_meta.namespace }}'
+  namespace: assisted-installer
 spec:
   accessModes:
   - ReadWriteOnce

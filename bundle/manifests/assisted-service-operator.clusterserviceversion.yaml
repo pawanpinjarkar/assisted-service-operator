@@ -7,7 +7,7 @@ metadata:
     operators.operatorframework.io/builder: operator-sdk-v1.3.0
     operators.operatorframework.io/project_layout: go.kubebuilder.io/v3
   name: assisted-service-operator.v0.0.1
-  namespace: assisted-installer
+  #namespace: assisted-installer
 spec:
   apiservicedefinitions: {}
   customresourcedefinitions: {}
@@ -216,7 +216,7 @@ spec:
                   requests:
                     cpu: 300m
                     memory: 400Mi
-                image: quay.io/ocpmetal/assisted-service:latest
+                image: quay.io/rwsu/assisted-service:latest
                 imagePullPolicy: Always
                 ports:
                   - containerPort: 8090
@@ -343,8 +343,9 @@ spec:
             #     secret:
             #       secretName: route53-creds
             #       optional: true
-      permissions:
-      - rules:
+      clusterPermissions:
+      - serviceAccountName: default
+        rules:
         - verbs:
             - get
             - watch

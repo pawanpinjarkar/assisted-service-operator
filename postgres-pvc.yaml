@@ -3,7 +3,7 @@ kind: PersistentVolumeClaim
 metadata:
   labels: {app: postgres}
   name: postgres-pv-claim
-  #namespace: '{{ ansible_operator_meta.namespace }}'
+  namespace: assisted-installer
 spec:
   accessModes: [ReadWriteOnce]
   resources:
