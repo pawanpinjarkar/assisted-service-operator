@@ -24,13 +24,13 @@ spec:
           app.kubernetes.io/managed-by: olm
           app.kubernetes.io/part-of: assisted-service
           app.kubernetes.io/version: 0.0.1
-          name: postgres
+          app: postgres
         name: postgres
         spec:
           replicas: 1
           selector:
             matchLabels:
-              name: postgres
+              app: postgres
           strategy:
             type: RollingUpdate
           template:
@@ -40,7 +40,7 @@ spec:
                 app.kubernetes.io/managed-by: olm
                 app.kubernetes.io/part-of: assisted-service
                 app.kubernetes.io/version: 0.0.1
-                name: postgres
+                app: postgres
             spec:
               containers:
               - env:
@@ -71,13 +71,13 @@ spec:
           app.kubernetes.io/managed-by: olm
           app.kubernetes.io/part-of: assisted-service
           app.kubernetes.io/version: 0.0.1
-          name: scality
+          app: scality
         name: scality
         spec:
           replicas: 1
           selector:
             matchLabels:
-              name: scality
+              app: scality
           strategy:
             type: RollingUpdate
           template:
@@ -87,7 +87,7 @@ spec:
                 app.kubernetes.io/managed-by: olm
                 app.kubernetes.io/part-of: assisted-service
                 app.kubernetes.io/version: 0.0.1
-                name: scality
+                app: scality
             spec:
               containers:
               - env:
@@ -148,13 +148,13 @@ spec:
           app.kubernetes.io/managed-by: olm
           app.kubernetes.io/part-of: assisted-service
           app.kubernetes.io/version: 0.0.1
-          name: ocp-metal-ui
+          app: ocp-metal-ui
         name: ocp-metal-ui
         spec:
           replicas: 1
           selector:
             matchLabels:
-              name: ocp-metal-ui
+              app: ocp-metal-ui
           strategy:
             type: RollingUpdate
           template:
@@ -164,7 +164,7 @@ spec:
                 app.kubernetes.io/managed-by: olm
                 app.kubernetes.io/part-of: assisted-service
                 app.kubernetes.io/version: 0.0.1
-                name: ocp-metal-ui
+                app: ocp-metal-ui
             spec:
               containers:
                 - name: ocp-metal-ui
@@ -189,13 +189,13 @@ spec:
           app.kubernetes.io/managed-by: olm
           app.kubernetes.io/part-of: assisted-service
           app.kubernetes.io/version: 0.0.1
-          name: assisted-service
+          app: assisted-service
         name: assisted-service
         spec:
           replicas: 1
           selector:
             matchLabels:
-              name: assisted-service
+              app: assisted-service
           strategy:
             type: RollingUpdate
           template:
@@ -205,7 +205,7 @@ spec:
                 app.kubernetes.io/managed-by: olm
                 app.kubernetes.io/part-of: assisted-service
                 app.kubernetes.io/version: 0.0.1
-                name: assisted-service
+                app: assisted-service
             spec:
               containers:
               - name: assisted-service
@@ -334,17 +334,9 @@ spec:
                         fieldPath: metadata.namespace
                   - name: AWS_SHARED_CREDENTIALS_FILE
                     value: /etc/.aws/credentials
-            #     volumeMounts:
-            #       - name: route53-creds
-            #         mountPath: "/etc/.aws"
-            #         readOnly: true
-            # volumes:
-            #   - name: route53-creds
-            #     secret:
-            #       secretName: route53-creds
-            #       optional: true
+              serviceAccountName: assisted-service-operator
       clusterPermissions:
-      - serviceAccountName: default
+      - serviceAccountName: assisted-service-operator
         rules:
         - verbs:
             - get

@@ -6,7 +6,6 @@ metadata:
   name: cloudserver-front
   namespace: '{{ ansible_operator_meta.namespace }}'
 spec:
-  clusterIP: None
   ports:
   - port: 8000
     protocol: TCP
