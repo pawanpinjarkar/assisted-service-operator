@@ -6,13 +6,18 @@ metadata:
     capabilities: Basic Install
     operators.operatorframework.io/builder: operator-sdk-v1.3.0
     operators.operatorframework.io/project_layout: go.kubebuilder.io/v3
-  name: assisted-service-operator.v0.0.1
-  #namespace: assisted-installer
+    description: |-
+      Assisted Service Operator is an Operator for installing Assisted Service.
 spec:
   apiservicedefinitions: {}
   customresourcedefinitions: {}
-  description: Assisted Service description
-  displayName: Assisted Service
+  description: |-
+    **Assisted Service Operator** is an Operator for installing Assisted Service.
+
+    # Requirements
+
+    Two PersistentVolumes, 10GB and 20GB in size, are required.
+  displayName: Assisted Service Operator
   icon:
   - base64data: ""
     mediatype: ""
@@ -397,11 +402,11 @@ spec:
     type: AllNamespaces
   keywords:
   - assisted-service
+  - OpenShift
   links:
-  - name: Assisted Service Operator
-    url: https://assisted-service-operator.domain
+  - name: Assisted Service
+    url: https://github.com/openshift/assisted-service
   maturity: alpha
   provider:
-    name: PROVIDER_NAME
-    url: URL
+    name: Red Hat
   version: 0.0.1

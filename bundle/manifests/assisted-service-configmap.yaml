@@ -29,4 +29,3 @@ metadata:
   labels:
     app: assisted-service
   name: assisted-service-config
-  namespace: '{{ ansible_operator_meta.namespace }}'

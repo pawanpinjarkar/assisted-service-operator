@@ -4,7 +4,6 @@ metadata:
   labels:
     app: assisted-service
   name: assisted-service
-  #namespace: '{{ ansible_operator_meta.namespace }}'
 spec:
   ports:
     - name: assisted-service

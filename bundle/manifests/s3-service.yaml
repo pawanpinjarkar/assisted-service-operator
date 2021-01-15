@@ -4,7 +4,6 @@ metadata:
   labels:
     app: scality
   name: cloudserver-front
-  namespace: '{{ ansible_operator_meta.namespace }}'
 spec:
   ports:
   - port: 8000

@@ -2,7 +2,6 @@ kind: ConfigMap
 apiVersion: v1
 metadata:
   name: ocp-metal-ui
-  #namespace: '{{ ansible_operator_meta.namespace }}'
 data:
   nginx.conf: |
     server {
