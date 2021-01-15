@@ -1,0 +1,164 @@
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  annotations:
+    controller-gen.kubebuilder.io/version: v0.4.0
+  creationTimestamp: null
+  name: clusters.adi.io.my.domain
+spec:
+  group: adi.io.my.domain
+  names:
+    kind: Cluster
+    listKind: ClusterList
+    plural: clusters
+    singular: cluster
+  scope: Namespaced
+  versions:
+  - name: v1alpha1
+    schema:
+      openAPIV3Schema:
+        description: Cluster is the Schema for the clusters API
+        properties:
+          apiVersion:
+            description: 'APIVersion defines the versioned schema of this representation
+              of an object. Servers should convert recognized schemas to the latest
+              internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources'
+            type: string
+          kind:
+            description: 'Kind is a string value representing the REST resource this
+              object represents. Servers may infer this from the endpoint the client
+              submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds'
+            type: string
+          metadata:
+            type: object
+          spec:
+            description: ClusterSpec defines the desired state of Cluster
+            properties:
+              additionalNtpSource:
+                type: string
+              apiVIP:
+                type: string
+              apiVIPdnsName:
+                type: string
+              approved:
+                description: Installation will start once cluster is in known state
+                  and approved
+                type: boolean
+              baseDNSDomain:
+                type: string
+              clusterNetworkCIDR:
+                type: string
+              clusterNetworkHostPrefix:
+                format: int64
+                type: integer
+              httpProxy:
+                type: string
+              httpsProxy:
+                type: string
+              ingressVIP:
+                type: string
+              installConfigOverrides:
+                type: string
+              machineNetworkCIDR:
+                type: string
+              name:
+                description: Cluster name
+                type: string
+              noProxy:
+                type: string
+              openshiftVersion:
+                type: string
+              pullSecretRef:
+                description: A reference to the secret containing the pull secret
+                properties:
+                  name:
+                    description: Name is unique within a namespace to reference a
+                      secret resource.
+                    type: string
+                  namespace:
+                    description: Namespace defines the space within which the secret
+                      name must be unique.
+                    type: string
+                type: object
+              serviceNetworkCIDR:
+                type: string
+              sshPublicKey:
+                type: string
+              userManagedNetworking:
+                type: boolean
+              vipDHCPAllocation:
+                type: boolean
+            required:
+            - name
+            - openshiftVersion
+            - pullSecretRef
+            type: object
+          status:
+            description: ClusterStatus defines the observed state of Cluster
+            properties:
+              connectivityMajorityGroups:
+                type: string
+              controllerLogsCollectionTime:
+                format: date-time
+                type: string
+              error:
+                description: Display api errors
+                type: string
+              hostNetworks:
+                items:
+                  properties:
+                    cidr:
+                      description: cidr
+                      type: string
+                    hostIDs:
+                      description: host ids
+                      items:
+                        type: string
+                      type: array
+                  required:
+                  - hostIDs
+                  type: object
+                type: array
+              hosts:
+                type: integer
+              id:
+                description: 'Cluster ID TODO: probably need to work with labels'
+                type: string
+              installationCompletionTime:
+                format: date-time
+                type: string
+              installationStartTime:
+                format: date-time
+                type: string
+              lastUpdateTime:
+                format: date-time
+                type: string
+              progress:
+                properties:
+                  lastProgressUpdateTime:
+                    description: Time at which the cluster install progress was last
+                      updated.
+                    format: date-time
+                    type: string
+                  progressInfo:
+                    description: progress info
+                    type: string
+                type: object
+              state:
+                type: string
+              stateInfo:
+                type: string
+              validationsInfo:
+                type: string
+            type: object
+        type: object
+    served: true
+    storage: true
+    subresources:
+      status: {}
+status:
+  acceptedNames:
+    kind: ""
+    plural: ""
+  conditions: []
+  storedVersions: []

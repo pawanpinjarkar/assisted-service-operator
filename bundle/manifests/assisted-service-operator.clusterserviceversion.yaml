@@ -7,12 +7,23 @@ metadata:
     operators.operatorframework.io/builder: operator-sdk-v1.3.0
     operators.operatorframework.io/project_layout: go.kubebuilder.io/v3
     description: |-
-      Assisted Service Operator is an Operator for installing Assisted Service.
+      Assisted Service is used to orchestrate baremetal OpenShift installations.
+  name: assisted-service-operator.v0.0.1
 spec:
   apiservicedefinitions: {}
-  customresourcedefinitions: {}
+  customresourcedefinitions:
+    owned:
+      - name: hosts.adi.io.my.domain
+        version: v1alpha1
+        kind: Host
+      - name: clusters.adi.io.my.domain
+        version: v1alpha1
+        kind: Cluster
+      - name: images.adi.io.my.domain
+        version: v1alpha1
+        kind: Image
   description: |-
-    **Assisted Service Operator** is an Operator for installing Assisted Service.
+    Assisted Service is used to orchestrate baremetal OpenShift installations.
 
     # Requirements
 
