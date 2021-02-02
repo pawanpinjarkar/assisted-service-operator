@@ -69,7 +69,7 @@ spec:
                 - name: POSTGRESQL_PASSWORD
                   valueFrom:
                     secretKeyRef: {key: db.password, name: assisted-installer-rds}
-                image: quay.io/ocpmetal/postgresql-12-centos7
+                image: virthost.ostest.test.metalkube.org:5000/localimages/postgresql-12-centos7
                 imagePullPolicy: IfNotPresent
                 name: postgres
                 ports:
@@ -142,7 +142,7 @@ spec:
                     secretKeyRef:
                       key: s3_metadata_path
                       name: assisted-installer-s3
-                image: quay.io/ocpmetal/s3server
+                image: virthost.ostest.test.metalkube.org:5000/localimages/s3server
                 imagePullPolicy: Always
                 name: s3server
                 resources:
@@ -184,7 +184,7 @@ spec:
             spec:
               containers:
                 - name: ocp-metal-ui
-                  image: quay.io/ocpmetal/ocp-metal-ui:latest
+                  image: virthost.ostest.test.metalkube.org:5000/localimages/ocp-metal-ui:latest
                   imagePullPolicy: Always
                   ports:
                     - containerPort: 80
@@ -232,7 +232,7 @@ spec:
                   requests:
                     cpu: 300m
                     memory: 400Mi
-                image: quay.io/rwsu/assisted-service:latest
+                image: virthost.ostest.test.metalkube.org:5000/localimages/assisted-service:latest
                 imagePullPolicy: Always
                 ports:
                   - containerPort: 8090
