@@ -5,7 +5,7 @@ metadata:
 data:
   nginx.conf: |
     server {
-      listen 8080;
+      listen [::]:8080 ipv6only=on;
       server_name _;
 
       root /app;
