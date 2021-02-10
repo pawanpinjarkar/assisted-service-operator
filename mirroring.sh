@@ -2,7 +2,7 @@ REG_CREDS=${XDG_RUNTIME_DIR}/containers/auth.json
 
 oc image mirror \
     -a ${REG_CREDS} \
-    quay.io/rwsu/assisted-service:latest \
+    quay.io/ppinjark/assisted-service:latest \
     virthost.ostest.test.metalkube.org:5000/localimages/assisted-service:latest
 
 oc image mirror \
@@ -45,7 +45,7 @@ oc image mirror \
     quay.io/openshift-release-dev/ocp-release@sha256:2419f9cd3ea9bd114764855653012e305ade2527210d332bfdd6dbdae538bd66 \
     virthost.ostest.test.metalkube.org:5000/localimages/ocp-release@sha256:2419f9cd3ea9bd114764855653012e305ade2527210d332bfdd6dbdae538bd66
 
-oc image mirror \
-    -a ${REG_CREDS} \
-    quay.io/ocpmetal/assisted-service:latest \
-    virthost.ostest.test.metalkube.org:5000/localimages/assisted-service:latest
+#oc image mirror \
+#    -a ${REG_CREDS} \
+#    quay.io/ocpmetal/assisted-service:latest \
+#    virthost.ostest.test.metalkube.org:5000/localimages/assisted-service:latest
