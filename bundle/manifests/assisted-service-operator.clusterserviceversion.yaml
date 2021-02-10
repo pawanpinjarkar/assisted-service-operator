@@ -342,6 +342,8 @@ spec:
                     value: "text"
                   - name: INSTALL_RH_CA
                     value: "false"
+                  - name: DEPLOY_TARGET
+                    value: ocp
                   - name: REGISTRY_CREDS
                     value: ""
                   - name: NAMESPACE
