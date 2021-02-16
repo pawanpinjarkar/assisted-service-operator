@@ -344,6 +344,14 @@ spec:
                     value: "false"
                   - name: DEPLOY_TARGET
                     value: ocp
+                  - name: OPENSHIFT_INSTALL_RELEASE_IMAGE
+                    value: "quay.io/openshift-release-dev/ocp-release@sha256:d78292e9730dd387ff6198197c8b0598da340be7678e8e1e4810b557a926c2b9"
+                  - name: OPENSHIFT_INSTALL_RELEASE_IMAGE_MIRROR
+                    value: "virthost.ostest.test.metalkube.org:5000/ocp4@sha256:d78292e9730dd387ff6198197c8b0598da340be7678e8e1e4810b557a926c2b9"
+                  - name: PUBLIC_CONTAINER_REGISTRIES
+                    value: quay.io
+                  - name: CONTROLLER_IMAGE
+                    value: "virthost.ostest.test.metalkube.org:5000/ocpmetal/assisted-installer-controller@sha256:f760ee8a2928010ce66f475985cee4555de01452a2890c69288b6208ce30181a"
                   - name: REGISTRY_CREDS
                     value: ""
                   - name: NAMESPACE
