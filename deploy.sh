@@ -1,5 +1,3 @@
-./mirroring.sh
-
 make bundle-build BUNDLE_IMG=virthost.ostest.test.metalkube.org:5000/localimages/assisted-service-operator-bundle:0.0.1
 podman push virthost.ostest.test.metalkube.org:5000/localimages/assisted-service-operator-bundle:0.0.1
 

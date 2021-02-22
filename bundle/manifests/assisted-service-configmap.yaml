@@ -1,32 +1,33 @@
 apiVersion: v1
 data:
   ADMIN_USERS: ercohen,lgamliel,mfilanov,ygoldber
-  AGENT_DOCKER_IMAGE: virthost.ostest.test.metalkube.org:5000/ocpmetal/assisted-installer-agent:latest
-  API_VIP_CONNECTIVITY_CHECK_IMAGE: virthost.ostest.test.metalkube.org:5000/ocpmetal/assisted-installer-agent:latest
+  AGENT_DOCKER_IMAGE: virthost.ostest.test.metalkube.org:5000/localimages/assisted-installer-agent:latest
+  API_VIP_CONNECTIVITY_CHECK_IMAGE: virthost.ostest.test.metalkube.org:5000/localimages/assisted-installer-agent:latest
   BASE_DNS_DOMAINS: ''
-  CONNECTIVITY_CHECK_IMAGE: virthost.ostest.test.metalkube.org:5000/ocpmetal/assisted-installer-agent:latest
-  CONTROLLER_IMAGE: virthost.ostest.test.metalkube.org:5000/ocpmetal/assisted-installer-controller@sha256:f760ee8a2928010ce66f475985cee4555de01452a2890c69288b6208ce30181a
+  CONNECTIVITY_CHECK_IMAGE: virthost.ostest.test.metalkube.org:5000/localimages/assisted-installer-agent:latest
+  CONTROLLER_IMAGE: virthost.ostest.test.metalkube.org:5000/localimages/assisted-installer-controller:latest
   CREATE_S3_BUCKET: 'true'
-  DHCP_LEASE_ALLOCATOR_IMAGE: virthost.ostest.test.metalkube.org:5000/ocpmetal/assisted-installer-agent:latest
+  DHCP_LEASE_ALLOCATOR_IMAGE: virthost.ostest.test.metalkube.org:5000/localimages/assisted-installer-agent:latest
   ENABLE_AUTH: 'False'
-  FIO_PERF_CHECK_IMAGE: virthost.ostest.test.metalkube.org:5000/ocpmetal/assisted-installer-agent:latest
-  FREE_ADDRESSES_IMAGE: virthost.ostest.test.metalkube.org:5000/ocpmetal/assisted-installer-agent:latest
-  INSTALLER_IMAGE: virthost.ostest.test.metalkube.org:5000/ocpmetal/assisted-installer:latest
-  INVENTORY_IMAGE: virthost.ostest.test.metalkube.org:5000/ocpmetal/assisted-installer-agent:latest
+  FIO_PERF_CHECK_IMAGE: virthost.ostest.test.metalkube.org:5000/localimages/assisted-installer-agent:latest
+  FREE_ADDRESSES_IMAGE: virthost.ostest.test.metalkube.org:5000/localimages/assisted-installer-agent:latest
+  INSTALLER_IMAGE: virthost.ostest.test.metalkube.org:5000/localimages/assisted-installer:latest
+  INVENTORY_IMAGE: virthost.ostest.test.metalkube.org:5000/localimages/assisted-installer-agent:latest
   JWKS_URL: https://api.openshift.com/.well-known/jwks.json
   NAMESPACE: assisted-installer
-  NTP_SYNCHRONIZER_IMAGE: virthost.ostest.test.metalkube.org:5000/ocpmetal/assisted-installer-agent:latest
+  NTP_SYNCHRONIZER_IMAGE: virthost.ostest.test.metalkube.org:5000/localimages/assisted-installer-agent:latest
   OCM_BASE_URL: https://api-integration.6943.hive-integration.openshiftapps.com
-  OPENSHIFT_INSTALL_RELEASE_IMAGE: quay.io/openshift-release-dev/ocp-release@sha256:d78292e9730dd387ff6198197c8b0598da340be7678e8e1e4810b557a926c2b9
-  OPENSHIFT_INSTALL_RELEASE_IMAGE_MIRROR: virthost.ostest.test.metalkube.org:5000/ocp4@sha256:d78292e9730dd387ff6198197c8b0598da340be7678e8e1e4810b557a926c2b9
+  OPENSHIFT_INSTALL_RELEASE_IMAGE: ''
   OPENSHIFT_VERSIONS: '{"4.6":{"display_name":"4.6.8","release_image":"virthost.ostest.test.metalkube.org:5000/localimages/ocp-release:4.6.8-x86_64","rhcos_image":"http://virthost.ostest.test.metalkube.org:90/rhcos-4.6.8-x86_64-live.x86_64.iso","support_level":"production"},"4.7":{"display_name":"4.7-pre-release","release_image":"virthost.ostest.test.metalkube.org:5000/localimages/ocp-release@sha256:2419f9cd3ea9bd114764855653012e305ade2527210d332bfdd6dbdae538bd66","rhcos_image":"http://virthost.ostest.test.metalkube.org:90/rhcos-4.6.8-x86_64-live.x86_64.iso","support_level":"beta"}}'
   PUBLIC_CONTAINER_REGISTRIES: virthost.ostest.test.metalkube.org:5000
   SELF_VERSION: virthost.ostest.test.metalkube.org:5000/localimages/assisted-service:latest
   SERVICE_BASE_URL: http://assisted-service-assisted-installer.apps.ostest.test.metalkube.org
   SKIP_CERT_VERIFICATION: 'true'
   HW_VALIDATOR_MIN_DISK_SIZE_GIB: '20'
+  NTP_DEFAULT_SERVER : clock.redhat.com
 kind: ConfigMap
 metadata:
   labels:
     app: assisted-service
   name: assisted-service-config
+

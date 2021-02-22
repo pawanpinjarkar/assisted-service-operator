@@ -1,0 +1,30 @@
+additionalTrustBundle: |
+    -----BEGIN CERTIFICATE-----
+    MIIDtDCCApygAwIBAgIUYkTPoH/rqQhBYIHA0iWoU52RLV0wDQYJKoZIhvcNAQEL
+    BQAwcjELMAkGA1UEBhMCVVMxCzAJBgNVBAgMAk5DMRAwDgYDVQQHDAdSYWxlaWdo
+    MRUwEwYDVQQKDAxUZXN0IENvbXBhbnkxEDAOBgNVBAsMB1Rlc3RpbmcxGzAZBgNV
+    BAMMEnRlc3QubWV0YWxrdWJlLm9yZzAeFw0yMTAyMjEyMDE5MTZaFw0yMjAyMjEy
+    MDE5MTZaMHIxCzAJBgNVBAYTAlVTMQswCQYDVQQIDAJOQzEQMA4GA1UEBwwHUmFs
+    ZWlnaDEVMBMGA1UECgwMVGVzdCBDb21wYW55MRAwDgYDVQQLDAdUZXN0aW5nMRsw
+    GQYDVQQDDBJ0ZXN0Lm1ldGFsa3ViZS5vcmcwggEiMA0GCSqGSIb3DQEBAQUAA4IB
+    DwAwggEKAoIBAQDYJmqUSRnGequ/xibSLq8rA3CHPvMUrKfVI+0cU+NUKk6KMmnl
+    aJnuQSKmk1VEbmjmUWDEYvhEVZmGh06VTzlYeM04fwZ5A91Th4SDtkoyTAfQ/DJ+
+    PxeGELyS/fOIP3exhZWdReIRDCm6/HBDzYMYzKCvcpNcrRoN98b9DV9kf086c0On
+    xsS+jHt/EnYZK5eQZW2hqx4yeq5QQ9Lg7mAYxRjSo4IfIdlWHP63R1KJeSUpwI1e
+    1AjX9Dx88sMY8VLLyZgKe0Ny1YzRX2He6EwmiamjUTH6CWQJrajW3f14I4N9X8dO
+    BR1Kd1b9t5MnHH+7mjoaHTpOnuFvXR1wGntVAgMBAAGjQjBAMA8GA1UdEwQIMAYB
+    Af8CAQAwLQYDVR0RBCYwJIIidmlydGhvc3Qub3N0ZXN0LnRlc3QubWV0YWxrdWJl
+    Lm9yZzANBgkqhkiG9w0BAQsFAAOCAQEAATvB1uLCowpaAddcbHRqjXKP4ZhSzzcC
+    gVG15vAscbzN2Qyv39j6mW3XQ5lKqoXC5Bj8td8M1yqDVnwTwgkX0fTNaoO1K0lS
+    P7b5S48S9Xn+qo3wQn/ZHJ416URV66yDLfioJJvx9k9ujZBczYLvfuMx8MHwdrto
+    wC2NS686eFmMZI83Mal/+dp7iN/fwrWeUwDQj/2+mLWQQqhLjQi3eo7Z0MEElDCw
+    Ed5AI8nTFBRu+EtNxaT4BxH24jaddiwAaBqi1FcQCS+owj/G10odxTq2xUDyHqix
+    6exGsWGBqbH+Y1CM+Gyhw4TQLy3V8p97p1xqLsIP/Lc+IFKi3FV4BA==
+    -----END CERTIFICATE-----
+imageContentSources:
+- mirrors:
+  - virthost.ostest.test.metalkube.org:5000/ocp4
+  source: quay.io/openshift-release-dev/ocp-release
+- mirrors:
+  - virthost.ostest.test.metalkube.org:5000/ocp4
+  source: quay.io/openshift-release-dev/ocp-v4.0-art-dev
