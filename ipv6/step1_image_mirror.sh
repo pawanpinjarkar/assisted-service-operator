@@ -17,7 +17,7 @@ do
 done
 
 
-export LOCAL_REPOSITORY=ocp4
+export LOCAL_REPOSITORY=localimages
 export OCP_RELEASE=4.6.8-x86_64
 export OCP_REGISTRY=quay.io/openshift-release-dev/ocp-release
  
