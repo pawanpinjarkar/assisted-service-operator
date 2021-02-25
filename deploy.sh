@@ -1,12 +1,18 @@
-make bundle-build BUNDLE_IMG=virthost.ostest.test.metalkube.org:5000/localimages/assisted-service-operator-bundle:0.0.1
-podman push virthost.ostest.test.metalkube.org:5000/localimages/assisted-service-operator-bundle:0.0.1
+sed -i 's/$LOCAL_REGISTRY\/$LOCAL_REPOSITORY/virthost.ostest.test.metalkube.org:5000\/localimages/g' ipv6/step1_image_mirror.sh
+sed -i 's/$LOCAL_REGISTRY\/$LOCAL_REPOSITORY/virthost.ostest.test.metalkube.org:5000\/localimages/g' bundle/manifests/*.yaml
+sed -i 's/$LOCAL_REGISTRY/virthost.ostest.test.metalkube.org:5000/g' bundle/manifests/*.yaml
+
+sh ipv6/step1_image_mirror.sh
+
+make bundle-build BUNDLE_IMG=quay.io/ppinjark/assisted-service-operator-bundle:0.0.1
+podman push quay.io/ppinjark/assisted-service-operator-bundle:0.0.1
 
 opm index add \
-    --bundles virthost.ostest.test.metalkube.org:5000/localimages/assisted-service-operator-bundle:0.0.1 \
-    --tag virthost.ostest.test.metalkube.org:5000/localimages/rwsu-assisted-service-index:0.0.1 \
+    --bundles quay.io/ppinjark/assisted-service-operator-bundle:0.0.1 \
+    --tag quay.io/ppinjark/ppinjark-assisted-service-index:0.0.1 \
     --pull-tool podman
     
-podman push virthost.ostest.test.metalkube.org:5000/localimages/rwsu-assisted-service-index:0.0.1
+podman push quay.io/ppinjark/ppinjark-assisted-service-index:0.0.1
 
 oc apply -f namespace.yaml
 oc apply -f postgres-pvc.yaml
