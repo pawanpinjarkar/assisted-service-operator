@@ -234,6 +234,10 @@ spec:
                     memory: 400Mi
                 image: $LOCAL_REGISTRY/$LOCAL_REPOSITORY/assisted-service:latest
                 imagePullPolicy: Always
+                volumeMounts:
+                  - name: registry-ca
+                    readOnly: true
+                    mountPath: /etc/pki/ca-trust/extracted/pem
                 ports:
                   - containerPort: 8090
                 livenessProbe:
@@ -353,6 +357,15 @@ spec:
                   - name: AWS_SHARED_CREDENTIALS_FILE
                     value: /etc/.aws/credentials
               serviceAccountName: assisted-service-operator
+              volumes:
+                - name: registry-ca
+                  configMap:
+                    name: registry-ca
+                    defaultMode: 420
+                    items:
+                      - key: ca-bundle.crt
+                        path: tls-ca-bundle.pem
+
       clusterPermissions:
       - serviceAccountName: assisted-service-operator
         rules:
