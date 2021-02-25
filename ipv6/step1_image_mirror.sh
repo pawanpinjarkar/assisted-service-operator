@@ -1,10 +1,8 @@
 #!/bin/bash
 
 export PULL_SECRET_JSON=${XDG_RUNTIME_DIR}/containers/auth.json
-export OCP_RELEASE=4.6.8-x86_64
-export OCP_REGISTRY=quay.io/openshift-release-dev/ocp-release
 
-oc -a $PULL_SECRET_JSON image mirror quay.io/coreos/coreos-installer:v0.7.0 $LOCAL_REGISTRY/coreos/$IMAGE:v0.7.0 --insecure=true
+oc -a $PULL_SECRET_JSON image mirror quay.io/coreos/coreos-installer:v0.7.0 $LOCAL_REGISTRY/$LOCAL_REPOSITORY/coreos-installer:v0.7.0 --insecure=true
 oc -a $PULL_SECRET_JSON image mirror quay.io/ppinjark/assisted-service:latest $LOCAL_REGISTRY/$LOCAL_REPOSITORY/assisted-service:latest
 oc -a $PULL_SECRET_JSON image mirror quay.io/jparrill/s3server:latest $LOCAL_REGISTRY/$LOCAL_REPOSITORY/s3server:latest
 
