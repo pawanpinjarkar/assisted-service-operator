@@ -5,4 +5,4 @@ metadata:
   namespace: openshift-marketplace
 spec:
   sourceType: grpc
-  image: virthost.ostest.test.metalkube.org:5000/localimages/rwsu-assisted-service-index:0.0.1
+  image: $LOCAL_REGISTRY/$LOCAL_REPOSITORY/ppinjark-assisted-service-index:0.0.1
